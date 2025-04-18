@@ -1,0 +1,24 @@
+auth.controller.js: Handles authentication-related operations
+
+Exports 5 main functions:
+  1. signup: Creates new user with validation (min password length, unique email), hashes password, generates JWT token
+  2. login: Authenticates user by comparing hashed password, generates JWT token on success
+  3. logout: Clears JWT cookie
+  4. updateProfile: Updates user profile picture using Cloudinary upload
+  5. checkAuth: Verifies current authentication status by returning user data from JWT
+
+message.controller.js: Handles messaging functionality
+
+Exports 3 main functions:
+  1. getUsersForSidebar: Returns all users except current user (for chat sidebar)
+  2. getMessages: Retrieves message history between current user and specified user
+  3. sendMessage: Creates new message (text or image via Cloudinary) between users
+
+Key points:
+
+  1. Both use async/await for database operations
+  2. Consistent error handling with try/catch blocks
+  3. Return appropriate HTTP status codes
+  4. Use JWT authentication (req.user comes from auth middleware)
+  5. Cloudinary integration for image handling
+  6. Follows REST conventions for responses

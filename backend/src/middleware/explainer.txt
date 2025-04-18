@@ -1,0 +1,16 @@
+auth.middleware.js: 
+  1. authentication guard for protected routes
+  2. Protects routes by verifying JWT tokens from cookies
+
+1. Verifies token existence
+2. Validates token signature using JWT_SECRET
+3. Confirms user exists in database
+4. Attaches authenticated user to request object (req.user)
+
+Used in routes to:
+
+  1. Restrict access to authenticated users only
+  2. Provide user context to controllers
+  3. Prevent unauthorized access to protected endpoints
+  
+The middleware is typically applied to routes that require authentication before accessing controller functions.
